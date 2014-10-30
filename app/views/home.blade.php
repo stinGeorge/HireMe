@@ -7,11 +7,13 @@
     <div class="container">
         <h1>HireMe</h1>
         <p>Primer proyecto a modo de práctica con las clases del profesor Duilio Palacios en el curso de mejorando.la.</p>
+        @if(Auth::guest())
         <p>
             <a href="{{ route('sign_up') }}" class="btn btn-primary btn-lg" role="button">
                 Postulate &raquo;
             </a>
         </p>
+        @endif
     </div>
 </div>
 

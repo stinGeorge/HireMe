@@ -33,9 +33,11 @@ abstract class BaseManager{
 
     }
 
+    /* Esto es para generalizar en todos los managers en el BaseManager
     public function prepareData($data){
         return $data;
     }
+    */
 
     public function save(){
 

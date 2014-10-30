@@ -84,3 +84,8 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+// Custom function for administrators
+function is_admin(){
+    return Auth::check() && Auth::user()->type = 'admin';
+}

@@ -22,6 +22,11 @@ class ProfileManager extends BaseManager{
         if (!isset($data['available'])) {
             $data['available'] = 0;
         }
+
+        // Manera directa sin asignacion masiva
+        // $this->entity->slug = Str::slug($this->entity->user->full_name);
+        $data['slug'] = \Str::slug($this->entity->user->full_name);
+
         return $data;
     }
 

@@ -27,12 +27,16 @@ Route::group(['before' => 'guest'], function(){
     Route::post('login', ['as' => 'login', 'uses' => 'AuthController@login']);
 });
 
-// FORMULARIOS
+// FORMULARIOS PARA 
 Route::group(['before' => 'auth'], function(){
-    Route::get('account', ['as' => 'account', 'uses' => 'UserController@account']);
-    Route::put('account', ['as' => 'update_account', 'uses' => 'UserController@updateAccount']);
-    Route::get('profile', ['as' => 'profile', 'uses' => 'UserController@profile']);
-    Route::put('profile', ['as' => 'update_profile', 'uses' => 'UserController@updateProfile']);
 
-    Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+    require(__DIR__ . '/routes/auth.php');
+
+    // Admin routes
+    Route::group(['before' => 'is_admin'], function(){
+
+        require(__DIR__ . '/routes/admin.php');
+
+    });
+
 });
